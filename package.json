@@ -1,0 +1,29 @@
+{
+  "name": "fdirc",
+  "version": "0.1.1",
+  "description": "IRC Channels for FluxData",
+  "homepage": "https://github.com/chromecide/fdirc",
+  "keywords": [
+    "FluxData",
+    "events",
+    "event-driven",
+    "framework",
+    "channels",
+    "channel",
+    "FluxData-Channel",
+    "IRC"
+  ],
+  "author": {
+    "name": "Justin Pradier",
+    "email": "chromecide@chromecide.com",
+    "url": "http://chromecide.com/"
+  },
+  "dependencies": {
+  	"irc":"0.3.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chromecide/fdirc.git"
+  },
+  "main": "index.js"
+}
