@@ -1,4 +1,16 @@
-;!function(exports, undefined) {
+if (typeof define !== 'function') {
+    var define = require('amdefine')(module);
+}
+
+define(['./mixins/chan'],function(chan){
+	var mixin = {
+		chan: chan
+	}
+	
+	return mixin;	
+});
+
+/*;!function(exports, undefined) {
 	
 	var roomChannel = require(__dirname+'/channels/room.js').Channel;
 	
@@ -16,4 +28,4 @@
 		exports.Channels = channels;
 	}
 
-}(typeof process !== 'undefined' && typeof process.title !== 'undefined' && typeof exports !== 'undefined' ? exports : window);
+}(typeof process !== 'undefined' && typeof process.title !== 'undefined' && typeof exports !== 'undefined' ? exports : window);*/
