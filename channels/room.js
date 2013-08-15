@@ -82,30 +82,29 @@
 				})
 				
 				this.irc_client.addListener('message', function (from, to, message) {
-				    self.emit('message', self.ensureEntity({
+				    self.emit('message', {
 				    	from: from,
 				    	to: to,
 				    	message: message
-				    }));
+				    });
 				});
 				
 				this.irc_client.addListener('pm', function (from, message) {
-				    self.emit('pm', self.ensureEntity({
+				    self.emit('pm', {
 				    	from: from,
 				    	message: message
-				    }));
+				    });
 				});
 
 				this.irc_client.addListener('join', function (chanName, user, raw) {
 					console.log(arguments);
-				    self.emit('join', self.ensureEntity({
+				    self.emit('join', {
 				    	chan: chanName,
 				    	nick: user
-				    }));
+				    });
 				});
 
-				this.irc_client.connect();
-					
+				self.emit('ready', self);
 			}
 			
 			if(topic=='say'){
