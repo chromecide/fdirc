@@ -6,7 +6,7 @@ if (typeof define !== 'function') {
 define(['require', 'irc'], function(require, irc){
 	var mixin = {
 		//called when first mixing in the functionality
-		init: function(cfg){
+		init: function(cfg, callback){
 			var self = this;
 			
 			for(var key in cfg){
@@ -62,7 +62,15 @@ define(['require', 'irc'], function(require, irc){
 				}
 			});
 			
-			self.emit('mixin.ready', self);
+			if(self.get('irc.autoConnect')==true){
+				self.irc_client.connect();
+			}
+			
+			self.emit('irc.mixin.ready', self);
+			
+			if(callback){
+				callback(false, self);
+			}
 		},
 		//called when something is published to this channel
 		publish: function(topic, data){
