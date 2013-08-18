@@ -1,21 +1,19 @@
-var requirejs = require('../../FluxData/node_modules/requirejs');
-
-process.fdpaths = {
-	FluxData: __dirname+'/../../FluxData',
-	//mixins: '../../FluxData/lib/mixins',
-	fdirc: __dirname+'/../'
-}
+var requirejs = require('requirejs');
 
 requirejs.config({
-	basePath: __dirname+'/../',
-	paths: process.fdpaths
+	basePath: __dirname,
+	nodeRequire: require,
+	paths:{
+		'fdirc': '../'
+	}
 });
 
-requirejs(['../../FluxData/index'], function(FluxData){
+requirejs(['require', '../../FluxData/index', 'fdirc/index'], function(require, FluxData, fdirc){
+	console.log(arguments);
 	var ircbot = new FluxData.Channel({
 		mixins:[
 			{
-				type:'fdirc/mixins/chan',
+				type: fdirc,
 				irc:{
 					nick: 'fluxbot',
 					chan: '#flux_test',

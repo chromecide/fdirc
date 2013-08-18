@@ -2,12 +2,13 @@ if (typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(['./mixins/chan'],function(chan){
+define(['fdirc/mixins/chan'], function(chan){
+	
 	var mixin = {
 		chan: chan
 	}
 	
-	return mixin;	
+	return mixin;
 });
 
 /*;!function(exports, undefined) {

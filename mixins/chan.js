@@ -1,8 +1,9 @@
+
 if (typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define(['irc'], function(irc){
+define(['require'], function(require, irc){
 	var mixin = {
 		//called when first mixing in the functionality
 		init: function(cfg){
